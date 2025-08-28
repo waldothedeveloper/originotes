@@ -6,6 +6,8 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
+import { RootLayout } from '@/components/RootLayout'
+import { RotatingBusinessTypes } from '@/components/RotatingBusinessTypes'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
@@ -20,7 +22,6 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-import { RootLayout } from '@/components/RootLayout'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -184,15 +185,31 @@ export default async function Home() {
   return (
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
+        <RotatingBusinessTypes />
+
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-neutral-950 sm:text-7xl">
-            Award-winning development studio based in Denmark.
+            Stop Chasing Customers. Make Them Chase You.
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
+            We get you more jobs without you lifting a finger. Your phone will
+            ring, your inbox will fill, and you&apos;ll wonder where all these
+            customers came from.
           </p>
+          <div className="mt-12 flex items-center gap-x-6">
+            <Link
+              href="#contact"
+              className="rounded-full bg-neutral-950 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800"
+            >
+              Hell Yes
+            </Link>
+            <Link
+              href="#services"
+              className="text-sm leading-6 font-semibold text-neutral-900 transition-colors hover:text-neutral-700"
+            >
+              Tell me more <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </FadeIn>
       </Container>
 

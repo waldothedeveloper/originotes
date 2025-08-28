@@ -71,11 +71,13 @@ function Header({
           onMouseLeave={() => setLogoHovered(false)}
         >
           <Logo
-            className="hidden h-20 sm:block"
+            className="h-16 sm:block md:h-20"
             invert={invert}
             filled={logoHovered}
           />
-          <span className="-ml-4 text-2xl font-extrabold">ORIGINOTES</span>
+          <span className="-ml-4 text-base font-extrabold md:text-2xl">
+            ORIGINOTES
+          </span>
         </Link>
         <div className="flex items-center gap-x-8">
           <Button href="/contact" invert={invert}>
@@ -292,7 +294,9 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <RootLayoutContext.Provider value={{ logoHovered: hasMounted ? logoHovered : false, setLogoHovered }}>
+    <RootLayoutContext.Provider
+      value={{ logoHovered: hasMounted ? logoHovered : false, setLogoHovered }}
+    >
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )

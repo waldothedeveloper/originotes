@@ -1,15 +1,14 @@
-import { useId } from 'react'
 import { type Metadata } from 'next'
 import Link from 'next/link'
+import { useId } from 'react'
 
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Offices } from '@/components/Offices'
 import { PageIntro } from '@/components/PageIntro'
-import { SocialMedia } from '@/components/SocialMedia'
 import { RootLayout } from '@/components/RootLayout'
+import { SocialMedia } from '@/components/SocialMedia'
 
 function TextInput({
   label,
@@ -36,18 +35,34 @@ function TextInput({
   )
 }
 
-function RadioInput({
+// function RadioInput({
+//   label,
+//   ...props
+// }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
+//   return (
+//     <label className="flex gap-x-3">
+//       <input
+//         type="radio"
+//         {...props}
+//         className="h-6 w-6 flex-none appearance-none rounded-full border border-neutral-950/20 outline-hidden checked:border-[0.5rem] checked:border-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+//       />
+//       <span className="text-base/6 text-neutral-950">{label}</span>
+//     </label>
+//   )
+// }
+
+function CheckboxInput({
   label,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
+}: React.ComponentPropsWithoutRef<'input'> & { label: React.ReactNode }) {
   return (
-    <label className="flex gap-x-3">
+    <label className="flex items-start gap-x-3">
       <input
-        type="radio"
+        type="checkbox"
         {...props}
-        className="h-6 w-6 flex-none appearance-none rounded-full border border-neutral-950/20 outline-hidden checked:border-[0.5rem] checked:border-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+        className="mt-1 h-5 w-5 flex-none appearance-none rounded border border-neutral-950/20 outline-hidden checked:border-neutral-950 checked:bg-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
       />
-      <span className="text-base/6 text-neutral-950">{label}</span>
+      <span className="text-sm/6 text-neutral-700">{label}</span>
     </label>
   )
 }
@@ -74,20 +89,22 @@ function ContactForm() {
           />
           <TextInput label="Phone" type="tel" name="phone" autoComplete="tel" />
           <TextInput label="Message" name="message" />
-          <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
-            <fieldset>
-              <legend className="text-base/6 text-neutral-500">Budget</legend>
-              <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <RadioInput label="$25K – $50K" name="budget" value="25" />
-                <RadioInput label="$50K – $100K" name="budget" value="50" />
-                <RadioInput label="$100K – $150K" name="budget" value="100" />
-                <RadioInput label="More than $150K" name="budget" value="150" />
-              </div>
-            </fieldset>
-          </div>
+        </div>
+        <div className="mt-6 rounded-2xl border border-neutral-300 bg-white/50 px-6 py-8">
+          <CheckboxInput
+            name="sms_consent"
+            required
+            label={
+              <>
+                I consent to receive text messages and communications at the
+                phone number provided. I understand that message and data rates
+                may apply, and I can opt out at any time by replying STOP.
+              </>
+            }
+          />
         </div>
         <Button type="submit" className="mt-10">
-          Let’s work together
+          Let&apos;s work together
         </Button>
       </form>
     </FadeIn>
@@ -98,38 +115,21 @@ function ContactDetails() {
   return (
     <FadeIn>
       <h2 className="font-display text-base font-semibold text-neutral-950">
-        Our offices
+        Email us
       </h2>
-      <p className="mt-6 text-base text-neutral-600">
-        Prefer doing things in person? We don’t but we have to list our
-        addresses here for legal reasons.
-      </p>
-
-      <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
-
-      <Border className="mt-16 pt-16">
-        <h2 className="font-display text-base font-semibold text-neutral-950">
-          Email us
-        </h2>
-        <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-          {[
-            ['Careers', 'careers@studioagency.com'],
-            ['Press', 'press@studioagency.com'],
-          ].map(([label, email]) => (
-            <div key={email}>
-              <dt className="font-semibold text-neutral-950">{label}</dt>
-              <dd>
-                <Link
-                  href={`mailto:${email}`}
-                  className="text-neutral-600 hover:text-neutral-950"
-                >
-                  {email}
-                </Link>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </Border>
+      <dl className="mt-6 text-sm">
+        <div>
+          <dt className="font-semibold text-neutral-950">General Inquiries</dt>
+          <dd>
+            <Link
+              href="mailto:contact@originotes.com"
+              className="text-neutral-600 hover:text-neutral-950"
+            >
+              contact@originotes.com
+            </Link>
+          </dd>
+        </div>
+      </dl>
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-neutral-950">
@@ -149,8 +149,11 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Contact us" title="Let’s work together">
-        <p>We can’t wait to hear from you.</p>
+      <PageIntro
+        eyebrow="Ready to grow?"
+        title="Let's turn your vision into customers"
+      >
+        <p>One conversation. Endless possibilities.</p>
       </PageIntro>
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">

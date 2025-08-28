@@ -1,5 +1,6 @@
 'use client'
 
+import { MotionConfig, motion, useReducedMotion } from 'framer-motion'
 import {
   createContext,
   useContext,
@@ -8,18 +9,17 @@ import {
   useRef,
   useState,
 } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
-import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
+import Link from 'next/link'
+import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+import clsx from 'clsx'
+import { usePathname } from 'next/navigation'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -64,21 +64,18 @@ function Header({
     <Container>
       <div className="flex items-center justify-between">
         <Link
+          className="flex items-center"
           href="/"
           aria-label="Home"
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logomark
-            className="h-8 sm:hidden"
-            invert={invert}
-            filled={logoHovered}
-          />
           <Logo
-            className="hidden h-8 sm:block"
+            className="hidden h-20 sm:block"
             invert={invert}
             filled={logoHovered}
           />
+          <span className="-ml-4 text-2xl font-extrabold">ORIGINOTES</span>
         </Link>
         <div className="flex items-center gap-x-8">
           <Button href="/contact" invert={invert}>
@@ -288,9 +285,14 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 export function RootLayout({ children }: { children: React.ReactNode }) {
   let pathname = usePathname()
   let [logoHovered, setLogoHovered] = useState(false)
+  let [hasMounted, setHasMounted] = useState(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
 
   return (
-    <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
+    <RootLayoutContext.Provider value={{ logoHovered: hasMounted ? logoHovered : false, setLogoHovered }}>
       <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )

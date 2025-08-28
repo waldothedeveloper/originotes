@@ -5,7 +5,11 @@
       "Bash(npm i:*)",
       "Bash(npm uninstall:*)",
       "WebFetch(domain:www.totaltypescript.com)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

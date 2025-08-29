@@ -1,8 +1,7 @@
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Logo } from '@/components/Logo'
-import { socialMediaProfiles } from '@/components/SocialMedia'
 import Link from 'next/link'
+import { Logo } from '@/components/Logo'
 
 const navigation = [
   {
@@ -14,10 +13,10 @@ const navigation = [
       { title: 'Contact us', href: '/contact' },
     ],
   },
-  {
-    title: 'Connect',
-    links: socialMediaProfiles,
-  },
+  // {
+  //   title: 'Connect',
+  //   links: socialMediaProfiles,
+  // },
 ]
 
 function Navigation() {
@@ -43,21 +42,20 @@ function Navigation() {
             </ul>
           </li>
         ))}
+        <div>
+          <div className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+            Connect
+          </div>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://instagram.com/originotesllc"
+          >
+            Instagram
+          </a>
+        </div>
       </ul>
     </nav>
-  )
-}
-
-function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 16 6" aria-hidden="true" {...props}>
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16 3 10 .5v2H0v1h10v2L16 3Z"
-      />
-    </svg>
   )
 }
 
@@ -73,7 +71,7 @@ export function Footer() {
             <Logo className="h-8" fillOnHover />
           </Link>
           <p className="text-sm text-neutral-700">
-            © Studio Agency Inc. {new Date().getFullYear()}
+            © Originotes LLC. {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>

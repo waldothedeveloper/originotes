@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import clsx from 'clsx'
 
 function InstagramIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -16,7 +15,7 @@ function InstagramIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export const socialMediaProfiles = [
   {
     title: 'Instagram',
-    href: 'https://instagram.com/originotes',
+    href: 'https://instagram.com/originotesllc',
     icon: InstagramIcon,
   },
 ]
@@ -39,7 +38,9 @@ export function SocialMedia({
     >
       {socialMediaProfiles.map((socialMediaProfile) => (
         <li key={socialMediaProfile.title}>
-          <Link
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
             href={socialMediaProfile.href}
             aria-label={socialMediaProfile.title}
             className={clsx(
@@ -48,7 +49,7 @@ export function SocialMedia({
             )}
           >
             <socialMediaProfile.icon className="h-6 w-6 fill-current" />
-          </Link>
+          </a>
         </li>
       ))}
     </ul>

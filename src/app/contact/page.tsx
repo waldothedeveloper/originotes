@@ -35,33 +35,30 @@ function TextInput({
   )
 }
 
-// function RadioInput({
-//   label,
-//   ...props
-// }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-//   return (
-//     <label className="flex gap-x-3">
-//       <input
-//         type="radio"
-//         {...props}
-//         className="h-6 w-6 flex-none appearance-none rounded-full border border-neutral-950/20 outline-hidden checked:border-[0.5rem] checked:border-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
-//       />
-//       <span className="text-base/6 text-neutral-950">{label}</span>
-//     </label>
-//   )
-// }
-
 function CheckboxInput({
   label,
   ...props
 }: React.ComponentPropsWithoutRef<'input'> & { label: React.ReactNode }) {
   return (
     <label className="flex items-start gap-x-3">
-      <input
-        type="checkbox"
-        {...props}
-        className="mt-1 h-5 w-5 flex-none appearance-none rounded border border-neutral-950/20 outline-hidden checked:border-neutral-950 checked:bg-neutral-950 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
-      />
+      <div className="relative mt-1">
+        <input
+          type="checkbox"
+          {...props}
+          className="peer h-5 w-5 flex-none appearance-none rounded border border-neutral-950/20 outline-hidden checked:border-green-500 checked:bg-green-500 focus-visible:ring-1 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+        />
+        <svg
+          className="absolute inset-0 h-5 w-5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fillRule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </div>
       <span className="text-sm/6 text-neutral-700">{label}</span>
     </label>
   )
@@ -143,7 +140,7 @@ function ContactDetails() {
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Let’s work together. We can’t wait to hear from you.',
+  description: "Let's work together. We can't wait to hear from you.",
 }
 
 export default function Contact() {

@@ -1,188 +1,273 @@
+import {
+  Handshake,
+  Heart,
+  MessageCircle,
+  Shield,
+  TrendingUp,
+  UserCheck,
+  Users,
+  Zap,
+} from 'lucide-react'
 import { type Metadata } from 'next'
 import Image from 'next/image'
 
-import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { GridList, GridListItem } from '@/components/GridList'
+import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StatList, StatListItem } from '@/components/StatList'
-import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
-import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
-import imageBlakeReid from '@/images/team/blake-reid.jpg'
-import imageChelseaHagon from '@/images/team/chelsea-hagon.jpg'
-import imageDriesVincent from '@/images/team/dries-vincent.jpg'
-import imageEmmaDorsey from '@/images/team/emma-dorsey.jpg'
-import imageJeffreyWebb from '@/images/team/jeffrey-webb.jpg'
-import imageKathrynMurphy from '@/images/team/kathryn-murphy.jpg'
-import imageLeonardKrasner from '@/images/team/leonard-krasner.jpg'
-import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
-import imageMichaelFoster from '@/images/team/michael-foster.jpg'
-import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
-import { loadArticles } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
+import imageWaldo from '@/images/waldo.jpeg'
+import { loadArticles } from '@/lib/mdx'
 
-function Culture() {
+function WhatWeDo() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
-      <SectionIntro
-        eyebrow="Our culture"
-        title="Balance your passion with your passion for life."
-        invert
-      >
-        <p>
-          We are a group of like-minded people who share the same core values.
+    <div className="bg-white px-6 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+        <p className="text-base/7 font-semibold text-neutral-950">What We Do</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
+          We're an online agency that helps local service businesses build the
+          online presence they deserve
+        </h2>
+        <p className="mt-6 text-xl/8">
+          Whether you're a plumber fixing leaks at 2 AM, an HVAC contractor
+          keeping families comfortable, or a landscaper making properties
+          beautiful, we've got your back online.
         </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <GridList>
-          <GridListItem title="Loyalty" invert>
-            Our team has been with us since the beginning because none of them
-            are allowed to have LinkedIn profiles.
-          </GridListItem>
-          <GridListItem title="Trust" invert>
-            We don’t care when our team works just as long as they are working
-            every waking second.
-          </GridListItem>
-          <GridListItem title="Compassion" invert>
-            You never know what someone is going through at home and we make
-            sure to never find out.
-          </GridListItem>
-        </GridList>
-      </Container>
+        <div className="mt-10 max-w-2xl">
+          <p className="text-neutral-600">Here's how we help:</p>
+          <ul role="list" className="mt-8 max-w-xl space-y-8 text-neutral-600">
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Users className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  Get you more customers
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                Through better online visibility and search engine optimization
+                that actually works.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Zap className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  Automate the boring stuff
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                So you can focus on what you do best - running your business and
+                serving customers.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <TrendingUp className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  Help you grow steadily
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                Without the headaches of managing complex technology or
+                marketing campaigns.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
 
-const team = [
-  {
-    title: 'Leadership',
-    people: [
-      {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        image: { src: imageLeslieAlexander },
-      },
-      {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        image: { src: imageMichaelFoster },
-      },
-      {
-        name: 'Dries Vincent',
-        role: 'Partner & Business Relations',
-        image: { src: imageDriesVincent },
-      },
-    ],
-  },
-  {
-    title: 'Team',
-    people: [
-      {
-        name: 'Chelsea Hagon',
-        role: 'Senior Developer',
-        image: { src: imageChelseaHagon },
-      },
-      {
-        name: 'Emma Dorsey',
-        role: 'Senior Designer',
-        image: { src: imageEmmaDorsey },
-      },
-      {
-        name: 'Leonard Krasner',
-        role: 'VP, User Experience',
-        image: { src: imageLeonardKrasner },
-      },
-      {
-        name: 'Blake Reid',
-        role: 'Junior Copywriter',
-        image: { src: imageBlakeReid },
-      },
-      {
-        name: 'Kathryn Murphy',
-        role: 'VP, Human Resources',
-        image: { src: imageKathrynMurphy },
-      },
-      {
-        name: 'Whitney Francis',
-        role: 'Content Specialist',
-        image: { src: imageWhitneyFrancis },
-      },
-      {
-        name: 'Jeffrey Webb',
-        role: 'Account Coordinator',
-        image: { src: imageJeffreyWebb },
-      },
-      {
-        name: 'Benjamin Russel',
-        role: 'Senior Developer',
-        image: { src: imageBenjaminRussel },
-      },
-      {
-        name: 'Angela Fisher',
-        role: 'Front-end Developer',
-        image: { src: imageAngelaFisher },
-      },
-    ],
-  },
-]
-
-function Team() {
+function OurStory() {
   return (
-    <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <div className="space-y-24">
-        {team.map((group) => (
-          <FadeInStagger key={group.title}>
-            <Border as={FadeIn} />
-            <div className="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8">
-              <FadeIn>
-                <h2 className="font-display text-2xl font-semibold text-neutral-950">
-                  {group.title}
-                </h2>
-              </FadeIn>
-              <div className="lg:col-span-3">
-                <ul
-                  role="list"
-                  className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8"
-                >
-                  {group.people.map((person) => (
-                    <li key={person.name}>
-                      <FadeIn>
-                        <div className="group relative overflow-hidden rounded-3xl bg-neutral-100">
-                          <Image
-                            alt=""
-                            {...person.image}
-                            className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black to-black/0 to-40% p-6">
-                            <p className="font-display text-base/6 font-semibold tracking-wide text-white">
-                              {person.name}
-                            </p>
-                            <p className="mt-2 text-sm text-white">
-                              {person.role}
-                            </p>
-                          </div>
-                        </div>
-                      </FadeIn>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </FadeInStagger>
-        ))}
+    <div className="bg-neutral-50 px-6 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+        <p className="text-base/7 font-semibold text-neutral-950">Our Story</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
+          Hi, I'm Waldo
+        </h2>
+        <p className="mt-6 text-xl/8">
+          I started this agency because I saw too many hardworking business
+          owners struggling to get noticed online. I've been building websites
+          for years, working with everyone from healthcare companies to
+          government services. But my heart is with the local businesses that
+          keep our communities running.
+        </p>
+        <div className="mt-10 max-w-2xl text-neutral-600">
+          <p>
+            I noticed that while big corporations have entire marketing teams,
+            the plumber down the street or the cleaning service that's been
+            family-owned for decades often gets left behind online. I have the
+            knowledge and experience to help them succeed.
+          </p>
+        </div>
+        <figure className="mt-16">
+          <Image
+            src={imageWaldo}
+            alt="Waldo - Founder and web developer"
+            className="aspect-video rounded-xl bg-neutral-100 object-cover"
+            sizes="(min-width: 1024px) 48rem, 100vw"
+          />
+          <figcaption className="mt-4 flex gap-x-2 text-sm/6 text-neutral-500">
+            Waldo Lavaut, Founder & Lead Developer
+          </figcaption>
+        </figure>
       </div>
-    </Container>
+    </div>
+  )
+}
+
+function WhyDifferent() {
+  return (
+    <div className="bg-white px-6 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+        <p className="text-base/7 font-semibold text-neutral-950">
+          Why We're Different
+        </p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
+          We keep it simple, we actually care, and we put you in control
+        </h2>
+        <div className="mt-10 max-w-2xl">
+          <ul role="list" className="mt-8 max-w-xl space-y-8 text-neutral-600">
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <MessageCircle className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  We keep it simple
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                No confusing tech talk or lengthy contracts. We explain
+                everything in plain English and focus on what actually matters
+                for your business.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <UserCheck className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  We actually care
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                Your success is our success. We're not just building you a
+                website and disappearing – we're here for the long haul,
+                celebrating your wins and solving problems together.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Shield className="h-5 w-5 flex-none text-neutral-950" />
+                <strong className="font-semibold text-neutral-900">
+                  We put you in control
+                </strong>
+              </div>
+              <p className="text-neutral-600">
+                Our solutions are built for speed, security, and most
+                importantly, your independence. You own your online presence,
+                not us. No vendor lock-in, no surprises.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Values() {
+  return (
+    <div className="bg-neutral-900 px-6 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-neutral-300">
+        <p className="text-base/7 font-semibold text-white">Our Values</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-white sm:text-4xl">
+          Built on trust, loyalty, and compassion
+        </h2>
+        <p className="mt-6 text-xl/8">
+          These aren't just words on a wall – they're the principles that guide
+          every decision we make and every relationship we build.
+        </p>
+        <div className="mt-10 max-w-2xl">
+          <ul role="list" className="mt-8 max-w-xl space-y-8 text-neutral-300">
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Handshake className="h-5 w-5 flex-none text-white" />
+                <strong className="font-semibold text-white">Loyalty</strong>
+              </div>
+              <p className="text-neutral-300">
+                We stick with our clients through thick and thin. When you
+                succeed, we celebrate. When you face challenges, we
+                problem-solve together.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Shield className="h-5 w-5 flex-none text-white" />
+                <strong className="font-semibold text-white">Trust</strong>
+              </div>
+              <p className="text-neutral-300">
+                We do what we say we'll do, when we say we'll do it. No
+                surprises, no hidden fees, no runaround. Just honest work and
+                transparent communication.
+              </p>
+            </li>
+            <li className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-3">
+                <Heart className="h-5 w-5 flex-none text-white" />
+                <strong className="font-semibold text-white">Compassion</strong>
+              </div>
+              <p className="text-neutral-300">
+                We understand that behind every business is a person working
+                hard to provide for their family and serve their community. That
+                drives everything we do.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function WhoWeServe() {
+  return (
+    <div className="bg-neutral-50 px-6 py-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+        <p className="text-base/7 font-semibold text-neutral-950">
+          Who We Serve
+        </p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
+          Local service businesses ready to grow
+        </h2>
+        <p className="mt-6 text-xl/8">
+          We work primarily with local service businesses throughout South
+          Florida, but we can help businesses anywhere in the country.
+        </p>
+        <div className="mt-10 max-w-2xl text-neutral-600">
+          <p>
+            Whether you're just starting out or you've been in business for
+            decades, if you're ready to grow your online presence the right way,
+            we'd love to chat. Our ideal clients are hardworking business owners
+            who understand the value of a strong online presence but don't have
+            the time or expertise to build it themselves.
+          </p>
+          <p className="mt-8">
+            From HVAC contractors and plumbers to landscapers and cleaning
+            services, we help the businesses that keep our communities running
+            strong.
+          </p>
+        </div>
+      </div>
+    </div>
   )
 }
 
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
+    'We help small businesses get found online. An online agency helping local service businesses build the online presence they deserve.',
 }
 
 export default async function About() {
@@ -190,42 +275,47 @@ export default async function About() {
 
   return (
     <RootLayout>
-      <PageIntro eyebrow="About us" title="Our strength is collaboration">
+      <PageIntro
+        eyebrow="About us"
+        title="We Help Small Businesses Get Found Online"
+        centered
+      >
         <p>
-          We believe that our strength lies in our collaborative approach, which
-          puts our clients at the center of everything we do.
+          Every day, people in your neighborhood are searching for the services
+          you provide. The problem? Most small business owners are too busy
+          actually doing the work to worry about websites, online marketing, or
+          complicated tech stuff.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <p>
-            Studio was started by three friends who noticed that developer
-            studios were charging clients double what an in-house team would
-            cost. Since the beginning, we have been committed to doing things
-            differently by charging triple instead.
-          </p>
-          <p>
-            At Studio, we’re more than just colleagues — we’re a family. This
-            means we pay very little and expect people to work late. We want our
-            employees to bring their whole selves to work. In return, we just
-            ask that they keep themselves there until at least 6:30pm.
-          </p>
+          <p>That's where we come in.</p>
         </div>
       </PageIntro>
-      <Container className="mt-16">
-        <StatList>
-          <StatListItem value="35" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$25M" label="Invoices billed" />
-        </StatList>
+
+      <WhatWeDo />
+
+      <OurStory />
+
+      <WhyDifferent />
+
+      <Values />
+
+      <WhoWeServe />
+
+      <Container className="mt-24 sm:mt-32 lg:mt-40">
+        <FadeIn>
+          <div className="text-center">
+            <p className="text-lg text-neutral-600 italic">
+              Ready to get started? Let's talk about how we can help your
+              business get the customers it deserves.
+            </p>
+          </div>
+        </FadeIn>
       </Container>
-
-      <Culture />
-
-      <Team />
 
       <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
         title="From the blog"
-        intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting Brand Sprints to UX Design."
+        intro="Practical insights and strategies to help your local service business grow online. No fluff, just real advice that works."
         pages={blogArticles}
       />
 

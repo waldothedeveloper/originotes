@@ -10,7 +10,9 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "WebFetch(domain:encoreacademyofthearts.com)"
+      "WebFetch(domain:encoreacademyofthearts.com)",
+      "Bash(sed:*)",
+      "Bash(npm run lint)"
     ],
     "deny": [],
     "ask": []

@@ -176,7 +176,7 @@ function Services() {
 
 export const metadata: Metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
+    'We help small businesses grow a stronger online presence with strategic marketing programs, AI automation, and proven lead generation strategies.',
 }
 
 export default async function Home() {
@@ -198,13 +198,7 @@ export default async function Home() {
           </p>
           <div className="mt-12 flex items-center gap-x-6">
             <Link
-              href="#contact"
-              className="rounded-full bg-neutral-950 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-neutral-800"
-            >
-              Hell Yes
-            </Link>
-            <Link
-              href="#services"
+              href="/services"
               className="text-sm leading-6 font-semibold text-neutral-900 transition-colors hover:text-neutral-700"
             >
               Tell me more <span aria-hidden="true">→</span>

@@ -13,7 +13,6 @@ import Image from 'next/image'
 
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
 import { RootLayout } from '@/components/RootLayout'
@@ -23,11 +22,11 @@ import { loadArticles } from '@/lib/mdx'
 function WhatWeDo() {
   return (
     <div className="bg-white px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+      <div className="max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">What We Do</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
-          We&apos;re an online agency that helps local service businesses build the
-          online presence they deserve
+          We&apos;re an online agency that helps local service businesses build
+          the online presence they deserve
         </h2>
         <p className="mt-6 text-xl/8">
           Whether you&apos;re a plumber fixing leaks at 2 AM, an HVAC contractor
@@ -83,15 +82,15 @@ function WhatWeDo() {
 function OurStory() {
   return (
     <div className="bg-neutral-50 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+      <div className="max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">Our Story</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
           Hi, I&apos;m Waldo
         </h2>
         <p className="mt-6 text-xl/8">
           I started this agency because I saw too many hardworking business
-          owners struggling to get noticed online. I&apos;ve been building websites
-          for years, working with everyone from healthcare companies to
+          owners struggling to get noticed online. I&apos;ve been building
+          websites for years, working with everyone from healthcare companies to
           government services. But my heart is with the local businesses that
           keep our communities running.
         </p>
@@ -122,7 +121,7 @@ function OurStory() {
 function WhyDifferent() {
   return (
     <div className="bg-white px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+      <div className="max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">
           Why We&apos;re Different
         </p>
@@ -180,14 +179,14 @@ function WhyDifferent() {
 function Values() {
   return (
     <div className="bg-neutral-900 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base/7 text-neutral-300">
+      <div className="max-w-3xl text-base/7 text-neutral-300">
         <p className="text-base/7 font-semibold text-white">Our Values</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-white sm:text-4xl">
           Built on trust, loyalty, and compassion
         </h2>
         <p className="mt-6 text-xl/8">
-          These aren&apos;t just words on a wall – they&apos;re the principles that guide
-          every decision we make and every relationship we build.
+          These aren&apos;t just words on a wall – they&apos;re the principles
+          that guide every decision we make and every relationship we build.
         </p>
         <div className="mt-10 max-w-2xl">
           <ul role="list" className="mt-8 max-w-xl space-y-8 text-neutral-300">
@@ -208,8 +207,8 @@ function Values() {
                 <strong className="font-semibold text-white">Trust</strong>
               </div>
               <p className="text-neutral-300">
-                We do what we say we&apos;ll do, when we say we&apos;ll do it. No
-                surprises, no hidden fees, no runaround. Just honest work and
+                We do what we say we&apos;ll do, when we say we&apos;ll do it.
+                No surprises, no hidden fees, no runaround. Just honest work and
                 transparent communication.
               </p>
             </li>
@@ -234,7 +233,7 @@ function Values() {
 function WhoWeServe() {
   return (
     <div className="bg-neutral-50 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
+      <div className="max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">
           Who We Serve
         </p>
@@ -247,11 +246,12 @@ function WhoWeServe() {
         </p>
         <div className="mt-10 max-w-2xl text-neutral-600">
           <p>
-            Whether you&apos;re just starting out or you&apos;ve been in business for
-            decades, if you&apos;re ready to grow your online presence the right way,
-            we&apos;d love to chat. Our ideal clients are hardworking business owners
-            who understand the value of a strong online presence but don&apos;t have
-            the time or expertise to build it themselves.
+            Whether you&apos;re just starting out or you&apos;ve been in
+            business for decades, if you&apos;re ready to grow your online
+            presence the right way, we&apos;d love to chat. Our ideal clients
+            are hardworking business owners who understand the value of a strong
+            online presence but don&apos;t have the time or expertise to build
+            it themselves.
           </p>
           <p className="mt-8">
             From HVAC contractors and plumbers to landscapers and cleaning
@@ -278,7 +278,6 @@ export default async function About() {
       <PageIntro
         eyebrow="About us"
         title="We Help Small Businesses Get Found Online"
-        centered
       >
         <p>
           Every day, people in your neighborhood are searching for the services
@@ -291,25 +290,16 @@ export default async function About() {
         </div>
       </PageIntro>
 
-      <WhatWeDo />
-
-      <OurStory />
-
-      <WhyDifferent />
-
-      <Values />
-
-      <WhoWeServe />
-
       <Container className="mt-24 sm:mt-32 lg:mt-40">
-        <FadeIn>
-          <div className="text-center">
-            <p className="text-lg text-neutral-600 italic">
-              Ready to get started? Let&apos;s talk about how we can help your
-              business get the customers it deserves.
-            </p>
-          </div>
-        </FadeIn>
+        <WhatWeDo />
+
+        <OurStory />
+
+        <WhyDifferent />
+
+        <Values />
+
+        <WhoWeServe />
       </Container>
 
       <PageLinks

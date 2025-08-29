@@ -26,16 +26,16 @@ function WhatWeDo() {
       <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">What We Do</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
-          We're an online agency that helps local service businesses build the
+          We&apos;re an online agency that helps local service businesses build the
           online presence they deserve
         </h2>
         <p className="mt-6 text-xl/8">
-          Whether you're a plumber fixing leaks at 2 AM, an HVAC contractor
+          Whether you&apos;re a plumber fixing leaks at 2 AM, an HVAC contractor
           keeping families comfortable, or a landscaper making properties
-          beautiful, we've got your back online.
+          beautiful, we&apos;ve got your back online.
         </p>
         <div className="mt-10 max-w-2xl">
-          <p className="text-neutral-600">Here's how we help:</p>
+          <p className="text-neutral-600">Here&apos;s how we help:</p>
           <ul role="list" className="mt-8 max-w-xl space-y-8 text-neutral-600">
             <li className="flex flex-col gap-y-2">
               <div className="flex items-center gap-x-3">
@@ -86,11 +86,11 @@ function OurStory() {
       <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">Our Story</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
-          Hi, I'm Waldo
+          Hi, I&apos;m Waldo
         </h2>
         <p className="mt-6 text-xl/8">
           I started this agency because I saw too many hardworking business
-          owners struggling to get noticed online. I've been building websites
+          owners struggling to get noticed online. I&apos;ve been building websites
           for years, working with everyone from healthcare companies to
           government services. But my heart is with the local businesses that
           keep our communities running.
@@ -98,7 +98,7 @@ function OurStory() {
         <div className="mt-10 max-w-2xl text-neutral-600">
           <p>
             I noticed that while big corporations have entire marketing teams,
-            the plumber down the street or the cleaning service that's been
+            the plumber down the street or the cleaning service that&apos;s been
             family-owned for decades often gets left behind online. I have the
             knowledge and experience to help them succeed.
           </p>
@@ -124,7 +124,7 @@ function WhyDifferent() {
     <div className="bg-white px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl text-base/7 text-neutral-700">
         <p className="text-base/7 font-semibold text-neutral-950">
-          Why We're Different
+          Why We&apos;re Different
         </p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-pretty text-neutral-950 sm:text-4xl">
           We keep it simple, we actually care, and we put you in control
@@ -152,8 +152,8 @@ function WhyDifferent() {
                 </strong>
               </div>
               <p className="text-neutral-600">
-                Your success is our success. We're not just building you a
-                website and disappearing – we're here for the long haul,
+                Your success is our success. We&apos;re not just building you a
+                website and disappearing – we&apos;re here for the long haul,
                 celebrating your wins and solving problems together.
               </p>
             </li>
@@ -186,7 +186,7 @@ function Values() {
           Built on trust, loyalty, and compassion
         </h2>
         <p className="mt-6 text-xl/8">
-          These aren't just words on a wall – they're the principles that guide
+          These aren&apos;t just words on a wall – they&apos;re the principles that guide
           every decision we make and every relationship we build.
         </p>
         <div className="mt-10 max-w-2xl">
@@ -208,7 +208,7 @@ function Values() {
                 <strong className="font-semibold text-white">Trust</strong>
               </div>
               <p className="text-neutral-300">
-                We do what we say we'll do, when we say we'll do it. No
+                We do what we say we&apos;ll do, when we say we&apos;ll do it. No
                 surprises, no hidden fees, no runaround. Just honest work and
                 transparent communication.
               </p>
@@ -247,10 +247,10 @@ function WhoWeServe() {
         </p>
         <div className="mt-10 max-w-2xl text-neutral-600">
           <p>
-            Whether you're just starting out or you've been in business for
-            decades, if you're ready to grow your online presence the right way,
-            we'd love to chat. Our ideal clients are hardworking business owners
-            who understand the value of a strong online presence but don't have
+            Whether you&apos;re just starting out or you&apos;ve been in business for
+            decades, if you&apos;re ready to grow your online presence the right way,
+            we&apos;d love to chat. Our ideal clients are hardworking business owners
+            who understand the value of a strong online presence but don&apos;t have
             the time or expertise to build it themselves.
           </p>
           <p className="mt-8">
@@ -287,7 +287,7 @@ export default async function About() {
           complicated tech stuff.
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
-          <p>That's where we come in.</p>
+          <p>That&apos;s where we come in.</p>
         </div>
       </PageIntro>
 
@@ -305,7 +305,7 @@ export default async function About() {
         <FadeIn>
           <div className="text-center">
             <p className="text-lg text-neutral-600 italic">
-              Ready to get started? Let's talk about how we can help your
+              Ready to get started? Let&apos;s talk about how we can help your
               business get the customers it deserves.
             </p>
           </div>

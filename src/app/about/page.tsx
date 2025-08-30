@@ -105,12 +105,12 @@ function OurStory() {
         <figure className="mt-16">
           <Image
             src={imageWaldo}
-            alt="Waldo - Founder and web developer"
+            alt="Waldo Lavaut - CEO and software developer"
             className="aspect-video rounded-xl bg-neutral-100 object-cover"
             sizes="(min-width: 1024px) 48rem, 100vw"
           />
           <figcaption className="mt-4 flex gap-x-2 text-sm/6 text-neutral-500">
-            Waldo Lavaut, Founder & Lead Developer
+            Waldo Lavaut, CEO & Software Developer at Originotes LLC
           </figcaption>
         </figure>
       </div>

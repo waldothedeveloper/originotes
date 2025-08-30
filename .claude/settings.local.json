@@ -12,7 +12,12 @@
       "Bash(git push:*)",
       "WebFetch(domain:encoreacademyofthearts.com)",
       "Bash(sed:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:airtable.com)",
+      "WebFetch(domain:community.airtable.com)",
+      "Bash(npm run build:*)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [],
     "ask": []

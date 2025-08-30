@@ -14,11 +14,11 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
-import Link from 'next/link'
 import { Logo } from '@/components/Logo'
-import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
 import clsx from 'clsx'
+import { Phone } from 'lucide-react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const RootLayoutContext = createContext<{
@@ -247,12 +247,12 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                      Contact Us
                     </h2>
-                    <Offices
-                      invert
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                    />
+                    <div className="mt-2 flex items-center">
+                      <Phone className="mr-2 inline-block size-4 text-white" />
+                      <p className="text-white">+1 (844) 422-4360</p>
+                    </div>
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
                     <h2 className="font-display text-base font-semibold text-white">

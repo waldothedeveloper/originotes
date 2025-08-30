@@ -128,12 +128,12 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="Small Business, Big Dreams. Zero Time? We’ve Got You."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
+          The smarter, simpler way to run your business while you focus on
+          actually running your business.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -148,24 +148,25 @@ function Services() {
             </FadeIn>
           </div>
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            <ListItem title="Online Booking That Works Around the Clock">
+              Your calendar fills while you’re off the clock. No more “Sorry, we
+              missed your call” moments — just smooth, 24/7 online booking that
+              works even when you don’t.
             </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+
+            <ListItem title="Get Paid Fast With Online Payments">
+              Checks are for your grandma. Accept cards, Apple Pay, and auto-pay
+              so you stop chasing cash and start stacking it.
             </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
+            <ListItem title="Stay Connected With Customers (Without the Phone Calls)">
+              Send updates, reminders, and review requests automatically. Look
+              bigger, sound smarter, and stay top-of-mind without ever picking
+              up the phone.
             </ListItem>
-            <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+            <ListItem title="Never Lose Another Lead Again">
+              Every lead gets chased (nicely). Our AI agents capture, track, and
+              follow up so no one gets away — unless they ghost you, in which
+              case, their loss.
             </ListItem>
           </List>
         </div>

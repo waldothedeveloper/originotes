@@ -1,5 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
+// TODO: Work is not public now, but that's on purpose until we have some case studies
 // Public routes
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -8,7 +9,8 @@ const isPublicRoute = createRouteMatcher([
   '/contact(.*)',
   '/about(.*)',
   '/blog(.*)',
-  '/work(.*)',
+  '/process(.*)',
+  '/pricing(.*)',
   '/terms-and-conditions(.*)',
   '/privacy-policy(.*)',
 ])

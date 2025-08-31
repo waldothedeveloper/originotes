@@ -101,7 +101,7 @@ function CheckboxInput({
 const handleSubmit = async (_: unknown, formData: FormData) => {
   try {
     await submitContactForm(formData)
-    toast.success("Message sent successfully! We'll get back to you soon.")
+    toast.success('Message sent successfully! We will get back to you soon.')
 
     // Reset form
     const form = document.querySelector('form') as HTMLFormElement
@@ -170,7 +170,7 @@ export function ContactForm() {
         {state?.success === true && (
           <div className="mt-3">
             <p className="text-black-950 text-sm">
-              Message sent successfully! We'll get back to you soon.
+              Message sent successfully! We will get back to you soon.
             </p>
           </div>
         )}

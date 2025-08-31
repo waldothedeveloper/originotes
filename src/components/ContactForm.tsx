@@ -2,10 +2,10 @@
 
 import { useActionState, useCallback, useId, useState } from 'react'
 
+import { submitContactForm } from '@/app/actions/contact'
 import { Button } from '@/components/Button'
 import { FadeIn } from '@/components/FadeIn'
 import { formatPhoneNumber } from '@/lib/formatPhone'
-import { submitContactForm } from '@/app/actions/contact'
 import { toast } from 'sonner'
 
 function TextInput({
@@ -170,7 +170,7 @@ export function ContactForm() {
         {state?.success === true && (
           <div className="mt-3">
             <p className="text-black-950 text-sm">
-              Message sent successfully! We&apos;ll get back to you soon.
+              Message sent successfully! We'll get back to you soon.
             </p>
           </div>
         )}
@@ -180,7 +180,7 @@ export function ContactForm() {
           className={isPending ? 'mt-10 opacity-50' : 'mt-10'}
           disabled={isPending}
         >
-          {isPending ? 'Sending...' : 'Let&apos;s work together'}
+          {isPending ? 'Sending...' : 'Submit Inquiry'}
         </Button>
       </form>
     </FadeIn>

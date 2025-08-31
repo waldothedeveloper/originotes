@@ -1,7 +1,7 @@
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import Link from 'next/link'
 import { Logo } from '@/components/Logo'
+import Link from 'next/link'
 
 const navigation = [
   {
@@ -13,10 +13,13 @@ const navigation = [
       { title: 'Contact us', href: '/contact' },
     ],
   },
-  // {
-  //   title: 'Connect',
-  //   links: socialMediaProfiles,
-  // },
+  {
+    title: 'Legal',
+    links: [
+      { title: 'Terms and Conditions', href: '/terms-and-conditions' },
+      { title: 'Privacy Policy', href: '/privacy-policy' },
+    ],
+  },
 ]
 
 function Navigation() {
@@ -47,6 +50,7 @@ function Navigation() {
             Connect
           </div>
           <a
+            className="text-sm text-neutral-700 transition hover:text-neutral-950"
             target="_blank"
             rel="noopener noreferrer"
             href="https://instagram.com/originotesllc"

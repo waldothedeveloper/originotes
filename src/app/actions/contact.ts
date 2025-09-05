@@ -17,7 +17,8 @@ const contactFormSchema = z.object({
     .string()
     .min(1, 'Message is required')
     .max(1000, 'Message is too long'),
-  sms_consent: z.literal('on', 'SMS consent is required'),
+  marketing_consent: z.literal('on', 'Marketing consent is required'),
+  informational_consent: z.literal('on', 'Informational consent is required'),
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
@@ -30,7 +31,8 @@ export async function submitContactForm(formData: FormData) {
       company: formData.get('company') || undefined,
       phone: formData.get('phone'),
       message: formData.get('message'),
-      sms_consent: formData.get('sms_consent'),
+      marketing_consent: formData.get('marketing_consent'),
+      informational_consent: formData.get('informational_consent'),
     }
 
     const validationResult = contactFormSchema.safeParse(rawData)
@@ -61,7 +63,19 @@ export async function submitContactForm(formData: FormData) {
               Company: data.company || '',
               Phone: data.phone,
               Message: data.message,
-              'SMS Consent': data.sms_consent === 'on',
+              'Informational Consent': data.informational_consent === 'on',
+              'Marketing Consent': data.marketing_consent === 'on',
+            },
+          },
+          {
+            fields: {
+              Name: data.name,
+              Email: data.email,
+              Company: data.company || '',
+              Phone: data.phone,
+              Message: data.message,
+              'Informational Consent': data.informational_consent === 'on',
+              'Marketing Consent': data.marketing_consent === 'on',
             },
           },
         ],

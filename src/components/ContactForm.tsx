@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useCallback, useId, useState } from 'react'
+import { useActionState, useCallback, useEffect, useId, useState } from 'react'
 
 import { submitContactForm } from '@/app/actions/contact'
 import { Button } from '@/components/Button'
@@ -10,6 +10,8 @@ import { toast } from 'sonner'
 
 function TextInput({
   label,
+  value,
+  onChange,
   ...props
 }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
   let id = useId()
@@ -20,6 +22,8 @@ function TextInput({
         type="text"
         id={id}
         {...props}
+        value={value}
+        onChange={onChange}
         placeholder=" "
         className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
       />
@@ -35,17 +39,19 @@ function TextInput({
 
 function PhoneInput({
   label,
+  value: externalValue,
+  onChange: externalOnChange,
   ...props
 }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
   let id = useId()
-  const [phoneValue, setPhoneValue] = useState('')
 
   const handlePhoneChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const formatted = formatPhoneNumber(e.target.value)
-      setPhoneValue(formatted)
+      const newEvent = { ...e, target: { ...e.target, value: formatted } }
+      externalOnChange?.(newEvent)
     },
-    [],
+    [externalOnChange],
   )
 
   return (
@@ -54,7 +60,7 @@ function PhoneInput({
         type="tel"
         id={id}
         {...props}
-        value={phoneValue}
+        value={externalValue}
         onChange={handlePhoneChange}
         placeholder=" "
         className="peer block w-full border border-neutral-300 bg-transparent px-6 pt-12 pb-4 text-base/6 text-neutral-950 ring-4 ring-transparent transition group-first:rounded-t-2xl group-last:rounded-b-2xl focus:border-neutral-950 focus:ring-neutral-950/5 focus:outline-hidden"
@@ -122,6 +128,30 @@ const handleSubmit = async (_: unknown, formData: FormData) => {
 
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState(handleSubmit, null)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: '',
+    marketing_consent: false,
+    informational_consent: false,
+  })
+
+  // Clear form only on successful submission
+  useEffect(() => {
+    if (state?.success === true) {
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: '',
+        marketing_consent: false,
+        informational_consent: false,
+      })
+    }
+  }, [state?.success])
 
   return (
     <FadeIn className="lg:order-last">
@@ -130,31 +160,69 @@ export function ContactForm() {
           Work inquiries
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput label="Name" name="name" autoComplete="name" required />
+          <TextInput 
+            label="Name" 
+            name="name" 
+            autoComplete="name" 
+            required 
+            value={formData.name}
+            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+          />
           <TextInput
             label="Email"
             type="email"
             name="email"
             autoComplete="email"
             required
+            value={formData.email}
+            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
           />
           <TextInput
             label="Company"
             name="company"
             autoComplete="organization"
+            value={formData.company}
+            onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
           />
-          <PhoneInput label="Phone" name="phone" autoComplete="tel" required />
-          <TextInput label="Message" name="message" required />
+          <PhoneInput 
+            label="Phone" 
+            name="phone" 
+            autoComplete="tel" 
+            required 
+            value={formData.phone}
+            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+          />
+          <TextInput 
+            label="Message" 
+            name="message" 
+            required 
+            value={formData.message}
+            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+          />
         </div>
-        <div className="mt-6bg-white/50 px-6 py-8">
+        <div className="mt-6 space-y-4 bg-white/50 px-6 py-8">
           <CheckboxInput
-            name="sms_consent"
+            name="marketing_consent"
             required
+            checked={formData.marketing_consent}
+            onChange={(e) => setFormData(prev => ({ ...prev, marketing_consent: e.target.checked }))}
             label={
               <>
-                I consent to receive text messages and communications at the
-                phone number provided. I understand that message and data rates
-                may apply, and I can opt out at any time by replying STOP.
+                I consent to receive marketing text messages from Originotes at the
+                phone number provided. Frequency may vary. Message & data rates may
+                apply. Text HELP for assistance, reply STOP to opt out.
+              </>
+            }
+          />
+          <CheckboxInput
+            name="informational_consent"
+            required
+            checked={formData.informational_consent}
+            onChange={(e) => setFormData(prev => ({ ...prev, informational_consent: e.target.checked }))}
+            label={
+              <>
+                I consent to receive non-marketing text messages from Originotes about
+                my order updates, appointment reminders, etc. Message & data rates may apply.
               </>
             }
           />

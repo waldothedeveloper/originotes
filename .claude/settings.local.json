@@ -18,7 +18,8 @@
       "WebFetch(domain:community.airtable.com)",
       "Bash(npm run build:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "WebFetch(domain:www.npmjs.com)"
     ],
     "deny": [],
     "ask": []

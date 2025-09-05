@@ -6,6 +6,7 @@ import { submitContactForm } from '@/app/actions/contact'
 import { Button } from '@/components/Button'
 import { FadeIn } from '@/components/FadeIn'
 import { formatPhoneNumber } from '@/lib/formatPhone'
+import { load } from '@fingerprintjs/botd'
 import { toast } from 'sonner'
 
 function TextInput({
@@ -138,6 +139,16 @@ export function ContactForm() {
     informational_consent: false,
   })
 
+  const [botDetection, setBotDetection] = useState<{
+    isBot: boolean
+    isLoading: boolean
+    error: string | null
+  }>({
+    isBot: false,
+    isLoading: true,
+    error: null,
+  })
+
   // Clear form only on successful submission
   useEffect(() => {
     if (state?.success === true) {
@@ -153,6 +164,33 @@ export function ContactForm() {
     }
   }, [state?.success])
 
+  // Initialize bot detection on component mount
+  useEffect(() => {
+    const initializeBotDetection = async () => {
+      try {
+        setBotDetection((prev) => ({ ...prev, isLoading: true, error: null }))
+        const botd = await load()
+        const result = botd.detect()
+
+        setBotDetection({
+          isBot: result.bot,
+          isLoading: false,
+          error: null,
+        })
+      } catch (error) {
+        console.error('Bot detection failed:', error)
+        setBotDetection({
+          isBot: false,
+          isLoading: false,
+          error:
+            error instanceof Error ? error.message : 'Bot detection failed',
+        })
+      }
+    }
+
+    initializeBotDetection()
+  }, [])
+
   return (
     <FadeIn className="lg:order-last">
       <form action={formAction}>
@@ -160,13 +198,15 @@ export function ContactForm() {
           Work inquiries
         </h2>
         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput 
-            label="Name" 
-            name="name" 
-            autoComplete="name" 
-            required 
+          <TextInput
+            label="Name"
+            name="name"
+            autoComplete="name"
+            required
             value={formData.name}
-            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, name: e.target.value }))
+            }
           />
           <TextInput
             label="Email"
@@ -175,29 +215,43 @@ export function ContactForm() {
             autoComplete="email"
             required
             value={formData.email}
-            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, email: e.target.value }))
+            }
           />
           <TextInput
             label="Company"
             name="company"
             autoComplete="organization"
             value={formData.company}
-            onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, company: e.target.value }))
+            }
           />
-          <PhoneInput 
-            label="Phone" 
-            name="phone" 
-            autoComplete="tel" 
-            required 
+          <PhoneInput
+            label="Phone"
+            name="phone"
+            autoComplete="tel"
+            required
             value={formData.phone}
-            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, phone: e.target.value }))
+            }
           />
-          <TextInput 
-            label="Message" 
-            name="message" 
-            required 
+          <TextInput
+            label="Message"
+            name="message"
+            required
             value={formData.message}
-            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, message: e.target.value }))
+            }
+          />
+          {/* Hidden field for bot detection result */}
+          <input
+            type="hidden"
+            name="bot_detected"
+            value={botDetection.isBot ? 'true' : 'false'}
           />
         </div>
         <div className="mt-6 space-y-4 bg-white/50 px-6 py-8">
@@ -205,12 +259,18 @@ export function ContactForm() {
             name="marketing_consent"
             required
             checked={formData.marketing_consent}
-            onChange={(e) => setFormData(prev => ({ ...prev, marketing_consent: e.target.checked }))}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                marketing_consent: e.target.checked,
+              }))
+            }
             label={
               <>
-                I consent to receive marketing text messages from Originotes at the
-                phone number provided. Frequency may vary. Message & data rates may
-                apply. Text HELP for assistance, reply STOP to opt out.
+                I consent to receive marketing text messages from Originotes at
+                the phone number provided. Frequency may vary. Message & data
+                rates may apply. Text HELP for assistance, reply STOP to opt
+                out.
               </>
             }
           />
@@ -218,11 +278,17 @@ export function ContactForm() {
             name="informational_consent"
             required
             checked={formData.informational_consent}
-            onChange={(e) => setFormData(prev => ({ ...prev, informational_consent: e.target.checked }))}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                informational_consent: e.target.checked,
+              }))
+            }
             label={
               <>
-                I consent to receive non-marketing text messages from Originotes about
-                my order updates, appointment reminders, etc. Message & data rates may apply.
+                I consent to receive non-marketing text messages from Originotes
+                about my order updates, appointment reminders, etc. Message &
+                data rates may apply.
               </>
             }
           />
@@ -245,10 +311,16 @@ export function ContactForm() {
 
         <Button
           type="submit"
-          className={isPending ? 'mt-10 opacity-50' : 'mt-10'}
-          disabled={isPending}
+          className={
+            isPending || botDetection.isLoading ? 'mt-10 opacity-50' : 'mt-10'
+          }
+          disabled={isPending || botDetection.isLoading}
         >
-          {isPending ? 'Sending...' : 'Submit Inquiry'}
+          {isPending
+            ? 'Sending...'
+            : botDetection.isLoading
+              ? 'Initializing security check...'
+              : 'Submit Inquiry'}
         </Button>
       </form>
     </FadeIn>

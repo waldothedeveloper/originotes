@@ -19,6 +19,7 @@ const contactFormSchema = z.object({
     .max(1000, 'Message is too long'),
   marketing_consent: z.literal('on', 'Marketing consent is required'),
   informational_consent: z.literal('on', 'Informational consent is required'),
+  bot_detected: z.string().optional(),
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
@@ -33,6 +34,7 @@ export async function submitContactForm(formData: FormData) {
       message: formData.get('message'),
       marketing_consent: formData.get('marketing_consent'),
       informational_consent: formData.get('informational_consent'),
+      bot_detected: formData.get('bot_detected'),
     }
 
     const validationResult = contactFormSchema.safeParse(rawData)
@@ -45,6 +47,13 @@ export async function submitContactForm(formData: FormData) {
     }
 
     const data = validationResult.data
+
+    // Optional: Block bot submissions (uncomment to enable)
+    if (data.bot_detected === 'true') {
+      throw new Error(
+        'Automated submissions are not allowed. Please try again from a regular browser.',
+      )
+    }
 
     const airtableUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_NAME}`
 
@@ -65,6 +74,7 @@ export async function submitContactForm(formData: FormData) {
               Message: data.message,
               'Informational Consent': data.informational_consent === 'on',
               'Marketing Consent': data.marketing_consent === 'on',
+              'Bot Detected': data.bot_detected === 'true',
             },
           },
         ],

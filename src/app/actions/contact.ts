@@ -67,17 +67,6 @@ export async function submitContactForm(formData: FormData) {
               'Marketing Consent': data.marketing_consent === 'on',
             },
           },
-          {
-            fields: {
-              Name: data.name,
-              Email: data.email,
-              Company: data.company || '',
-              Phone: data.phone,
-              Message: data.message,
-              'Informational Consent': data.informational_consent === 'on',
-              'Marketing Consent': data.marketing_consent === 'on',
-            },
-          },
         ],
       }),
     })

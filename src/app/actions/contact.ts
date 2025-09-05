@@ -74,7 +74,6 @@ export async function submitContactForm(formData: FormData) {
               Message: data.message,
               'Informational Consent': data.informational_consent === 'on',
               'Marketing Consent': data.marketing_consent === 'on',
-              'Bot Detected': data.bot_detected === 'true',
             },
           },
         ],

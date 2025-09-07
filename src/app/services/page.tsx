@@ -6,8 +6,8 @@ import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
 import { GridPattern } from '@/components/GridPattern'
 import { PageIntro } from '@/components/PageIntro'
-import { SectionIntro } from '@/components/SectionIntro'
 import { RootLayout } from '@/components/RootLayout'
+import { SectionIntro } from '@/components/SectionIntro'
 
 function ServiceSection({
   title,
@@ -44,27 +44,29 @@ function ServiceSection({
             </div>
           </FadeIn>
         </div>
-        
+
         <div className="mt-12 lg:mt-0 lg:w-1/3">
           <FadeIn>
             {benefits && (
               <div className="mb-8">
-                <h3 className="font-display text-base font-semibold text-neutral-950 mb-4">
-                  How this helps you:
+                <h3 className="mb-4 font-display text-base font-semibold text-neutral-950">
+                  How this helps your firm:
                 </h3>
                 <ul className="space-y-2">
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start">
-                      <span className="text-neutral-400 mr-2">•</span>
-                      <span className="text-sm text-neutral-600">{benefit}</span>
+                      <span className="mr-2 text-neutral-400">•</span>
+                      <span className="text-sm text-neutral-600">
+                        {benefit}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
             )}
-            
-            <div className="bg-neutral-950 text-white p-6 rounded-lg">
-              <h4 className="font-display text-sm font-semibold mb-2">
+
+            <div className="rounded-lg bg-neutral-950 p-6 text-white">
+              <h4 className="mb-2 font-display text-sm font-semibold">
                 Bottom line:
               </h4>
               <p className="text-sm italic">{impact}</p>
@@ -76,172 +78,117 @@ function ServiceSection({
   )
 }
 
-function OnlineBooking() {
+function WebDesign() {
   return (
     <ServiceSection
-      title="Online Booking That Works Around the Clock"
-      subtitle="Your customers book appointments on your website anytime, day or night, without calling you."
+      title="Web Design that Builds Trust"
+      subtitle="A modern, professional website that reflects your firm and makes it easy for clients to reach you."
       benefits={[
-        "Book jobs while you sleep - customers don't wait for business hours",
-        "No more phone tag or missed calls that turn into lost customers",
-        "Customers see exactly when you're available, so no more double bookings",
-        "Automatic text reminders mean fewer no-shows (and fewer wasted trips)",
-        "Customers choose their service type upfront, so you know what to expect"
+        'Clear pages for each practice area',
+        'Attorney bios that build confidence',
+        'Simple paths to call, book, or chat',
+        'Mobile-first design that looks great everywhere',
+        'Accessible and respectful of client privacy',
       ]}
-      impact="Most contractors see 40% more bookings and save 3 hours per week on scheduling"
+      impact="More qualified consultations from people who feel confident choosing your firm"
     >
       <p>
-        Stop losing customers to competitors who answer their phones. With 24/7 online booking,
-        your customers can schedule appointments whenever it&apos;s convenient for them - not just
-        during your business hours.
+        Your website is often a client’s first impression of your firm. We
+        design clean, credible pages that answer common questions, explain your
+        approach, and guide visitors to contact you without friction.
       </p>
       <p>
-        Our booking system integrates with your existing calendar and automatically handles
-        scheduling conflicts, service duration estimates, and customer notifications. 
-        You focus on the work, we handle the scheduling.
+        We focus on what clients care about: clarity, proof, and an easy way to
+        start a conversation. No fluff—just a site that helps people choose you.
       </p>
     </ServiceSection>
   )
 }
 
-function QuickQuotes() {
+function WebDevelopment() {
   return (
     <ServiceSection
-      title="Get Quotes Out Fast (Before Your Competition Does)"
-      subtitle="Customers upload photos and details about their project. You get organized information and can send quotes quickly."
+      title="Web Development that Works for Intake"
+      subtitle="Fast, secure, and built to support how your firm actually runs."
       benefits={[
-        "Send professional quotes in minutes instead of days",
-        "See the project before you drive there - no more wasted trips to jobs you can't do",
-        "Your pricing stays consistent, which builds trust with customers",
-        "Track which quotes turn into jobs so you know what's working",
-        "Get to good customers faster while competitors are still playing phone tag"
+        'Lightning-fast load times for better conversion',
+        'Clear intake forms with only what you need',
+        'Seamless routing to the right practice or paralegal',
+        'Calendar and call options for immediate next steps',
+        'Privacy-first approach that respects client data',
       ]}
-      impact="Win 25% more jobs and stop spending hours on quotes that go nowhere"
+      impact="Less friction at intake, fewer lost leads, stronger follow-through"
     >
       <p>
-        Speed wins contracts. While your competitors are scheduling site visits and playing
-        phone tag, you&apos;re already sending professional, detailed quotes based on photos
-        and project specifications.
+        We build websites that do real work for your team—capturing key details,
+        routing inquiries, and making follow-up simple. Everything is designed
+        to reduce drop‑off and help your staff respond quickly.
       </p>
       <p>
-        Our quote system helps you price consistently, track conversion rates, and
-        follow up automatically with prospects who haven&apos;t responded. Turn more estimates
-        into paying jobs without the back-and-forth hassle.
+        The result: a site that not only looks good, but supports intake from
+        the first click to the scheduled consultation.
       </p>
     </ServiceSection>
   )
 }
 
-function OnlinePayments() {
+function SEO() {
   return (
     <ServiceSection
-      title="Get Paid Fast With Online Payments"
-      subtitle="Customers pay you online with credit cards, debit cards, or apps like Apple Pay - no cash or checks needed."
+      title="SEO that Puts You on the Map"
+      subtitle="Show up where your clients are searching—locally and for your exact practice areas."
       benefits={[
-        "Get paid right after the job instead of waiting weeks for checks",
-        "Customers can pay from their phone - makes it easy for them, faster for you",
-        "Look more professional when you offer modern payment options",
-        "Everything's tracked digitally, so no more lost payment records",
-        "Perfect for maintenance customers who can pay automatically each month"
+        'Google Business Profile tuned for local visibility',
+        'Practice area pages that answer client questions',
+        'Clear location signals for the cities you serve',
+        'Structured content that helps Google understand your firm',
+        'Review strategy that earns trust and clicks',
       ]}
-      impact="Get paid 60% faster and eliminate the awkward 'payment conversation'"
+      impact="More qualified calls and consult requests from the right cases"
     >
       <p>
-        Cash flow problems kill small businesses. With online payments, you get paid
-        immediately when the job is done - no more waiting weeks for checks or
-        chasing down payments.
+        We organize your site and listings so people find you when it
+        matters—“near me” searches, practice‑specific terms, and local intent.
+        We focus on clarity and credibility, not jargon.
       </p>
       <p>
-        Accept credit cards, debit cards, and digital wallets right from your phone.
-        Set up automatic billing for maintenance customers and never chase a payment again.
+        You’ll know what’s working through plain‑English reporting tied to real
+        outcomes: calls, forms, and booked consultations.
       </p>
     </ServiceSection>
   )
 }
 
-function CustomerCommunication() {
+function Marketing() {
   return (
     <ServiceSection
-      title="Stay Connected With Customers (Without the Phone Calls)"
-      subtitle="Automatically updates customers throughout the job and follows up afterward."
+      title="Marketing that Wins the Comparison"
+      subtitle="Clear messaging, helpful content, and simple follow‑up that turn searches into signed clients."
       benefits={[
-        "Customers get 'we're on our way' texts instead of calling to ask where you are",
-        "Automatic follow-ups ask for reviews when customers are happiest",
-        "Send maintenance reminders so customers think of you first for future work",
-        "Handle simple questions 24/7 with smart chatbots (no more after-hours calls)",
-        "Professional communication makes you look bigger than you are"
+        'Messaging that speaks to client concerns',
+        'Content that explains next steps and sets expectations',
+        'Targeted ads when you need predictable volume',
+        'Email and SMS follow‑up that respects people’s time',
+        'Review and reputation support that builds social proof',
       ]}
-      impact="Get 35% higher customer satisfaction and 3x more Google reviews"
+      impact="Stronger pipeline, better fit matters, and more signed engagements"
     >
       <p>
-        Great communication separates good contractors from great ones. Automated updates
-        keep customers informed without constant phone calls, and systematic follow-ups
-        turn satisfied customers into repeat business and referrals.
+        We help your firm stand out with simple, direct communication. Prospects
+        quickly understand what you do, who you help, and how to get started—so
+        choosing your firm feels easy and safe.
       </p>
       <p>
-        From arrival notifications to review requests to seasonal service reminders,
-        our communication system keeps you top-of-mind with customers while requiring
-        minimal effort from you.
+        When ads make sense, we use them responsibly and measure what matters:
+        qualified inquiries, not vanity metrics.
       </p>
     </ServiceSection>
   )
 }
 
-function LeadManagement() {
-  return (
-    <ServiceSection
-      title="Never Lose Another Lead Again"
-      subtitle="Captures every potential customer from your website, Google, and referrals, then follows up automatically until they hire you."
-      benefits={[
-        "Every person who contacts you gets followed up - no one slips through the cracks",
-        "Automatic follow-ups turn more quotes into paying jobs",
-        "See which marketing actually brings in customers (and stop wasting money on what doesn't)",
-        "Past customers get reminded about seasonal services like gutter cleaning or AC tune-ups",
-        "Build a database of customers for future marketing"
-      ]}
-      impact="Turn 30% more leads into paying customers"
-    >
-      <p>
-        Every missed lead is money left on the table. Our lead management system captures
-        every inquiry from every source and follows up systematically until they become
-        customers or clearly say no.
-      </p>
-      <p>
-        Track which marketing channels bring the best customers, automate follow-up
-        sequences for different types of leads, and turn your customer database into
-        a recurring revenue machine.
-      </p>
-    </ServiceSection>
-  )
-}
+// (Retired contractor-specific section removed)
 
-function RecurringServices() {
-  return (
-    <ServiceSection
-      title="Turn One-Time Jobs Into Recurring Income"
-      subtitle="Manages maintenance contracts, seasonal reminders, and automatic billing for regular services."
-      benefits={[
-        "Set up monthly maintenance contracts that pay you every month",
-        "Automatically remind customers about seasonal services (spring AC check, fall gutter cleaning)",
-        "Customers can subscribe to regular services like weekly pool cleaning or monthly pest control",
-        "Automatic billing means you don't chase payments",
-        "Happy maintenance customers refer more business"
-      ]}
-      impact="Create 50% more recurring income and work with better long-term customers"
-    >
-      <p>
-        Stop chasing new customers every month. Recurring service contracts provide
-        predictable income and help you build long-term relationships with your
-        best customers.
-      </p>
-      <p>
-        From HVAC maintenance plans to regular cleaning services, our system handles
-        scheduling, billing, and customer communication automatically. Focus on the
-        work while we handle the business side.
-      </p>
-    </ServiceSection>
-  )
-}
+// (Retired contractor-specific section removed)
 
 function WhyTheseWork() {
   return (
@@ -254,42 +201,41 @@ function WhyTheseWork() {
       </div>
 
       <SectionIntro
-        eyebrow="Why these work"
-        title="Built for contractors, not generic businesses"
+        eyebrow="Why this works"
+        title="Built for how law firms grow"
       >
         <p>
-          These aren&apos;t just software features adapted from other industries. 
-          Every tool is designed specifically for the unique challenges of 
-          running a service business - from managing crews in the field to 
-          dealing with emergency calls.
+          Everything we deliver supports a single goal: help the right clients
+          find you and feel confident choosing you. We keep the process simple
+          for your team and respectful for potential clients.
         </p>
       </SectionIntro>
 
       <Container className="mt-24">
         <GridList>
-          <GridListItem title="No Tech Headaches">
-            Everything works on your phone. No complicated software or training 
-            needed. If you can send a text message, you can use these tools.
+          <GridListItem title="Client‑first">
+            Plain language, clear steps, and easy contact options—no confusion,
+            no dead ends.
           </GridListItem>
-          <GridListItem title="Built for Real Work">
-            Designed by people who understand service businesses, not generic 
-            business software that doesn&apos;t fit how you actually work.
+          <GridListItem title="Local visibility">
+            Strong presence in the cities you serve so nearby clients can find
+            you fast.
           </GridListItem>
-          <GridListItem title="Everything Connects">
-            Customer info, scheduling, quotes, and payments all work together 
-            automatically. No more juggling multiple apps and spreadsheets.
+          <GridListItem title="Credibility by design">
+            Reviews, results, and recognizable proof woven throughout your site,
+            not hidden.
           </GridListItem>
-          <GridListItem title="Start Making Money Fast">
-            Most tools start helping within 24-48 hours, not months. You&apos;ll 
-            see results immediately while we optimize your setup.
+          <GridListItem title="Operational fit">
+            Intake that matches your staffing and practice areas, so nothing
+            gets lost.
           </GridListItem>
-          <GridListItem title="Grows With Your Business">
-            Works whether you&apos;re working alone or managing multiple crews. 
-            Scale up without changing systems or losing customer data.
+          <GridListItem title="Accessible + respectful">
+            ADA‑minded and privacy‑aware, because trust starts before someone
+            contacts you.
           </GridListItem>
-          <GridListItem title="Proven Results">
-            These systems are used by successful contractors who compete with 
-            anyone and consistently grow their revenue year over year.
+          <GridListItem title="Measured outcomes">
+            We track what matters—calls, forms, and booked consults—so you see
+            real impact.
           </GridListItem>
         </GridList>
       </Container>
@@ -298,29 +244,27 @@ function WhyTheseWork() {
 }
 
 export const metadata: Metadata = {
-  title: 'Digital Services',
+  title: 'Services for Law Firms',
   description:
-    'Digital tools that help plumbers, electricians, HVAC contractors, landscapers, and other service professionals compete with bigger companies and grow their business.',
+    'We help law firms get found and chosen online with attorney‑focused web design, development, SEO, and marketing.',
 }
 
 export default function Services() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Digital Services" title="Digital Tools That Actually Help Your Service Business Grow">
+      <PageIntro eyebrow="Services" title="More Clients. Fewer Crickets.">
         <p>
-          Stop losing customers to bigger companies. Our simple digital solutions help plumbers, 
-          electricians, HVAC contractors, landscapers, and other service pros compete with anyone - 
-          without the tech headaches.
+          Silence might be golden in court, but it’s terrible for your inbox. We
+          help law firms get found and chosen online with websites that convert,
+          SEO that ranks, and marketing that doesn’t make you roll your eyes.
         </p>
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
-        <OnlineBooking />
-        <QuickQuotes />
-        <OnlinePayments />
-        <CustomerCommunication />
-        <LeadManagement />
-        <RecurringServices />
+        <WebDesign />
+        <WebDevelopment />
+        <SEO />
+        <Marketing />
       </div>
 
       <WhyTheseWork />

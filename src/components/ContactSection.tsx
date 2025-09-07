@@ -9,7 +9,7 @@ export function ContactSection() {
         <div className="mx-auto max-w-4xl">
           <div className="max-w-xl">
             <h2 className="font-display text-3xl font-medium text-balance text-white sm:text-4xl">
-              Make your website great again.
+              Make your online presence great again.
             </h2>
             <p className="mt-6 text-base/7 text-white">
               Every day you wait, another client hires someone else. Let’s flip

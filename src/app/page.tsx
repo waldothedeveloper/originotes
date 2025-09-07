@@ -133,7 +133,7 @@ function OriginotesDifference() {
               We focus on the essentials that matter most to clients searching
               for legal help:
             </p>
-            <dl className="mt-10 grid grid-cols-3 gap-4 space-y-8 text-base text-neutral-600 sm:mt-12 sm:space-y-12 lg:mt-16">
+            <dl className="mt-10 grid grid-cols-1 gap-4 space-y-8 text-base text-neutral-600 sm:mt-12 sm:space-y-12 md:grid-cols-3 lg:mt-16">
               <div>
                 <dt className="font-semibold text-neutral-950">
                   Professional Website

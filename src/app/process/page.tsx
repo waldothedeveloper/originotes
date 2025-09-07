@@ -4,13 +4,10 @@ import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { GridList, GridListItem } from '@/components/GridList'
-import { GridPattern } from '@/components/GridPattern'
 import { List, ListItem } from '@/components/List'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
-import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
-import { TagList, TagListItem } from '@/components/TagList'
 import imageLaptop from '@/images/laptop.jpg'
 import imageMeeting from '@/images/meeting.jpg'
 import imageWhiteboard from '@/images/whiteboard.jpg'
@@ -53,171 +50,221 @@ function Section({
   )
 }
 
-function Discover() {
+function StepDiscovery() {
   return (
-    <Section title="Discover" image={{ src: imageWhiteboard }}>
+    <Section title="Discovery & Strategy" image={{ src: imageWhiteboard }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          We start with a short conversation to learn about your business, your
-          services, and your goals. No long forms or corporate jargon — just a
-          clear understanding of what you need and where you want to go.
+          We start by getting to know your practice, your goals, and the
+          competitive landscape you’re up against.
+        </p>
+        <List className="mt-2">
+          <ListItem title="Who are your ideal clients?">
+            Identify the client profiles, case types, and intents you want more
+            of.
+          </ListItem>
+          <ListItem title="Which cases drive the most value?">
+            Prioritize practice areas and matter types with the highest ROI for
+            your firm.
+          </ListItem>
+          <ListItem title="Where are you being out-ranked or out-marketed?">
+            Analyze competitors, SERPs, and channels to uncover gaps and quick
+            wins.
+          </ListItem>
+        </List>
+        <p>
+          From there, we map a strategy that fits your firm — no cookie-cutter
+          templates. Every decision is grounded in your practice areas, your
+          city, and your growth goals.
         </p>
       </div>
-
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
-        Included in this phase
-      </h3>
-      <TagList className="mt-4">
-        <TagListItem>Quick kickoff call</TagListItem>
-        <TagListItem>Review of your current online presence</TagListItem>
-        <TagListItem>
-          Identifying your key services and service areas
-        </TagListItem>
-        <TagListItem>Clear goals for growth</TagListItem>
-      </TagList>
     </Section>
   )
 }
 
-function Build() {
+function StepFoundation() {
   return (
-    <Section title="Build" image={{ src: imageLaptop, shape: 1 }}>
+    <Section
+      title="Build a Strong Foundation"
+      image={{ src: imageLaptop, shape: 1 }}
+    >
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          With your goals in mind, we set up the digital tools that actually
-          help your business grow. Everything is built for speed, security, and
-          ease of use — so you can start winning more customers right away.
+          Your website is often the first impression a client gets of your firm.
+          We make sure it’s:
+        </p>
+        <List className="mt-2">
+          <ListItem title="Professional and credible">
+            Custom design that reflects your firm’s expertise.
+          </ListItem>
+          <ListItem title="Optimized for conversions">
+            Clear calls to action, fast load speeds, mobile-friendly.
+          </ListItem>
+          <ListItem title="Secure and compliant">
+            HTTPS, ADA accessibility, and tools to protect client data.
+          </ListItem>
+        </List>
+        <p>
+          We build primarily on WordPress (used by over 65% of law firm sites)
+          for flexibility and SEO strength. Every page is designed to not just
+          look good, but to earn trust and generate leads.
         </p>
       </div>
-
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
-        Included in this phase
-      </h3>
-      <TagList className="mt-4">
-        <TagListItem>A professional, conversion-focused website</TagListItem>
-        <TagListItem>24/7 online booking system</TagListItem>
-        <TagListItem>
-          Fast quoting system (so you beat your competitors)
-        </TagListItem>
-        <TagListItem>
-          Simple integrations with your existing calendar
-        </TagListItem>
-      </TagList>
     </Section>
   )
 }
 
-function Deliver() {
+function StepSEO() {
   return (
-    <Section title="Deliver" image={{ src: imageMeeting, shape: 2 }}>
+    <Section title="Get Found (SEO)" image={{ src: imageMeeting, shape: 2 }}>
       <div className="space-y-6 text-base text-neutral-600">
         <p>
-          Once everything is live, we make sure it works for your business and
-          your customers. We test, refine, and train you (or your team) so you
-          feel in control — not dependent on us.
+          Once your foundation is solid, we focus on visibility. Our SEO process
+          includes:
+        </p>
+        <List className="mt-2">
+          <ListItem title="Local SEO">
+            Google Business Profile optimization, legal directory listings, and
+            client review strategies to get you into the Local 3-Pack.
+          </ListItem>
+          <ListItem title="On-site optimization">
+            Content tuned to the cases you want most, with clear, plain-language
+            explanations your clients understand (and search engines reward).
+          </ListItem>
+          <ListItem title="Technical SEO">
+            Site speed, schema markup, crawlability — all the hidden but
+            critical factors that push you up in rankings.
+          </ListItem>
+          <ListItem title="Authority building">
+            Earning backlinks from credible sites and associations to strengthen
+            your domain.
+          </ListItem>
+        </List>
+        <p>
+          We track rankings, organic traffic, and — most importantly — leads.
         </p>
       </div>
-
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
-        Included in this phase
-      </h3>
-      <List className="mt-8">
-        <ListItem title="Launch & setup support">
-          We handle the technical launch and make sure everything works smoothly
-          from day one.
-        </ListItem>
-        <ListItem title="Automated text reminders">
-          Reduce no-shows with automatic appointment reminders sent to your
-          customers.
-        </ListItem>
-        <ListItem title="Easy customer management tools">
-          Simple tools to track customers, bookings, and follow up on leads.
-        </ListItem>
-        <ListItem title="Clear reporting">
-          Know what is working with easy-to-understand reports on bookings,
-          leads, and revenue.
-        </ListItem>
-      </List>
     </Section>
   )
 }
 
-function Values() {
+function StepMarketing() {
   return (
-    <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
-        <GridPattern
-          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
-          yOffset={-270}
-        />
-      </div>
-
-      <SectionIntro
-        eyebrow="Our values"
-        title="Balancing simplicity and results"
-      >
+    <Section
+      title="Accelerate Growth (Marketing)"
+      image={{ src: imageLaptop, shape: 1 }}
+    >
+      <div className="space-y-6 text-base text-neutral-600">
         <p>
-          We do not believe in complicated contracts or confusing tech jargon.
-          Our work is guided by values that keep things human and honest.
+          For competitive practice areas, SEO alone isn’t enough. That’s where
+          paid and outbound marketing comes in:
         </p>
-      </SectionIntro>
+        <List className="mt-2">
+          <ListItem title="Google Ads & Local Service Ads">
+            Get to the top of search results today, not months from now.
+          </ListItem>
+          <ListItem title="Conversion optimization">
+            Dedicated landing pages, call tracking, and intake optimization so
+            no lead is wasted.
+          </ListItem>
+          <ListItem title="Branding & reputation management">
+            From logos to online reviews, we make sure your firm looks
+            trustworthy and stands out in a crowded field.
+          </ListItem>
+        </List>
+        <p>
+          We monitor cost per lead, cost per client, and return on ad spend — so
+          you know exactly how your dollars are working for you.
+        </p>
+      </div>
+    </Section>
+  )
+}
 
-      <Container className="mt-24">
-        <GridList>
-          <GridListItem title="Meticulous">
-            Every detail of your online presence is built to earn trust and
-            convert visitors into customers.
-          </GridListItem>
-          <GridListItem title="Efficient">
-            We focus on what actually moves the needle, so you do not waste time
-            or money.
-          </GridListItem>
-          <GridListItem title="Adaptable">
-            Your business is not cookie-cutter — we build tools that fit how you
-            work.
-          </GridListItem>
-          <GridListItem title="Honest">
-            We are transparent in our process, pricing, and communication. No
-            surprises.
-          </GridListItem>
-          <GridListItem title="Loyal">
-            We stick with you as your business grows — celebrating wins and
-            solving problems together.
-          </GridListItem>
-          <GridListItem title="Innovative">
-            We use modern tools that save you time and help you stay ahead of
-            competitors.
-          </GridListItem>
-        </GridList>
-      </Container>
-    </div>
+function StepReview() {
+  return (
+    <Section
+      title="Review, Report, Refine"
+      image={{ src: imageMeeting, shape: 2 }}
+    >
+      <div className="space-y-6 text-base text-neutral-600">
+        <p>We meet with you regularly to review progress:</p>
+        <List className="mt-2">
+          <ListItem title="Are leads increasing?">
+            Track qualified inquiries, consultations, and signed matters over
+            time.
+          </ListItem>
+          <ListItem title="Which channels bring the most valuable cases?">
+            Attribute high‑value matters to SEO, ads, referrals, and local
+            profiles.
+          </ListItem>
+          <ListItem title="Do we need to pivot strategies?">
+            Reallocate budget, refine campaigns, or produce new content based on
+            results.
+          </ListItem>
+        </List>
+        <p>
+          You’ll get transparent reports, not vanity metrics. Every
+          recommendation ties back to your ultimate goal: more qualified
+          clients, fewer wasted marketing dollars.
+        </p>
+      </div>
+    </Section>
+  )
+}
+
+function WhatYouGet() {
+  return (
+    <Container className="mt-24">
+      <FadeIn>
+        <h2 className="font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+          What You Get
+        </h2>
+        <div className="mt-8">
+          <GridList>
+            <GridListItem title="Modern, professional website">
+              That actually converts — clear structure, trust signals, and
+              speed.
+            </GridListItem>
+            <GridListItem title="Higher visibility on Google">
+              For the cases you care about most and where you practice.
+            </GridListItem>
+            <GridListItem title="Predictable qualified leads">
+              Through SEO and marketing that supports intake and follow‑up.
+            </GridListItem>
+            <GridListItem title="Clear reporting and partnership">
+              Transparent metrics and a long‑term partner invested in growth.
+            </GridListItem>
+          </GridList>
+        </div>
+      </FadeIn>
+    </Container>
   )
 }
 
 export const metadata: Metadata = {
   title: 'Our Process',
   description:
-    'We believe in keeping things simple and effective. Our process is designed to save you time, remove the tech headaches, and get you more customers without unnecessary complexity.',
+    'Discovery, web foundations, SEO, marketing, and continuous refinement — a clear path to more qualified clients and measurable growth for your firm.',
 }
 
 export default function Process() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Our process" title="How we work">
-        <p>
-          We believe in keeping things simple and effective. Our process is
-          designed to save you time, remove the tech headaches, and get you more
-          customers without unnecessary complexity.
-        </p>
+      <PageIntro eyebrow="Our Process" title="Our Process">
+        A clear, five‑step path: discovery, foundation, SEO, marketing, and
+        ongoing refinement — built to earn trust and drive qualified leads.
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
-        <Discover />
-        <Build />
-        <Deliver />
+        <StepDiscovery />
+        <StepFoundation />
+        <StepSEO />
+        <StepMarketing />
+        <StepReview />
       </div>
 
-      <Values />
+      <WhatYouGet />
 
       <ContactSection />
     </RootLayout>

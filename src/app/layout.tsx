@@ -3,35 +3,36 @@ import { type Metadata } from 'next'
 import { Toaster } from 'sonner'
 
 import '@/styles/tailwind.css'
-
 export const metadata: Metadata = {
   title: {
     template: '%s - Originotes',
-    default: 'Originotes - Grow Your Online Presence & Get More Leads',
+    default: 'Originotes - Miami based Legal Marketing Agency',
   },
   description:
-    'We help small businesses grow a stronger online presence with strategic marketing programs, AI automation, and proven lead generation strategies.',
+    'Originotes is a Miami-based legal marketing agency helping law firms grow through custom websites, SEO, content, and targeted advertising. Stop chasing customers. Let them chase you.',
   keywords: [
-    'small business marketing',
-    'online presence',
-    'lead generation',
-    'AI automation',
-    'digital marketing',
-    'business growth',
-    'website design',
-    'website development',
+    'law firm marketing',
+    'legal marketing agency',
+    'lawyer SEO',
+    'law firm SEO',
+    'web design for law firms',
+    'law firm advertising',
+    'law firm lead generation',
+    'Miami law firm marketing',
+    'law firm website design',
+    'digital marketing for lawyers',
   ],
   openGraph: {
-    title: 'Originotes - Grow Your Online Presence & Get More Leads',
+    title: 'Originotes - Miami based Legal Marketing Agency',
     description:
-      'We help small businesses grow a stronger online presence with strategic marketing programs, AI automation, and proven lead generation strategies.',
+      'Originotes is a Miami-based legal marketing agency helping law firms grow through custom websites, SEO, content, and targeted advertising. Stop chasing customers. Let them chase you.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Originotes - Grow Your Online Presence & Get More Leads',
+    title: 'Originotes - Miami based Legal Marketing Agency',
     description:
-      'We help small businesses grow a stronger online presence with strategic marketing programs, AI automation, and proven lead generation strategies.',
+      'Originotes is a Miami-based legal marketing agency helping law firms grow through custom websites, SEO, content, and targeted advertising. Stop chasing customers. Let them chase you.',
   },
 }
 

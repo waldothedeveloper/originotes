@@ -75,6 +75,7 @@ function Header({
             invert={invert}
             filled={logoHovered}
           />
+
           <span
             className={
               invert
@@ -164,9 +165,9 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
   let panelId = useId()
   let [expanded, setExpanded] = useState(false)
   let [isTransitioning, setIsTransitioning] = useState(false)
-  let openRef = useRef<React.ElementRef<'button'>>(null)
-  let closeRef = useRef<React.ElementRef<'button'>>(null)
-  let navRef = useRef<React.ElementRef<'div'>>(null)
+  let openRef = useRef<React.ComponentRef<'button'>>(null)
+  let closeRef = useRef<React.ComponentRef<'button'>>(null)
+  let navRef = useRef<React.ComponentRef<'div'>>(null)
   let shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {

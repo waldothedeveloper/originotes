@@ -1,5 +1,3 @@
-import { type Metadata } from 'next'
-// import Image from 'next/image'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -10,6 +8,7 @@ import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import gazelleLawyer from '@/images/gazelle-lawyer.png'
 import imageLaptop from '@/images/laptop.jpg'
+import { type Metadata } from 'next'
 import Link from 'next/link'
 
 function Services() {
@@ -90,7 +89,6 @@ const RealityCheck = () => {
               <div className="mx-auto w-full max-w-xl">
                 <StylizedImage
                   src={gazelleLawyer}
-                  // src="https://images.unsplash.com/photo-1650419259707-8e9790b88509?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0"
                   alt="Gazelle running across a grassland"
                   sizes="(min-width: 1024px) 32rem, 100vw"
                 />

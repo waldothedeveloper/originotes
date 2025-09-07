@@ -25,6 +25,8 @@ type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 export function StylizedImage({
   shape = 0,
   className,
+  width: imgWidth,
+  height: imgHeight,
   ...props
 }: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
   let id = useId()
@@ -49,6 +51,8 @@ export function StylizedImage({
                 alt=""
                 className="w-full bg-neutral-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
+                width={imgWidth ?? width}
+                height={imgHeight ?? height}
                 {...props}
               />
             </foreignObject>
